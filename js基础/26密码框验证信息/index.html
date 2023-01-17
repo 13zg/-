@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    li {
+      list-style: none;
+      width: 450px;
+      margin: 100px auto;
+      font-size: 12px;
+    }
+    li input {
+      outline: none;
+    }
+    li span {
+      color: #999;
+      background: url(images/mess.png) no-repeat left center;
+      vertical-align: middle;
+      padding-left: 20px;
+    }
+    .wrong {
+      color: red;
+      background-image: url(images/wrong.png);
+    }
+    .right {
+      color: green;
+      background-image: url(images/right.png);
+    }
+  </style>
+  <body>
+    <li>
+      <label for="pwd">设置密码：</label>
+      <input type="password" name="" id="pwd" required="required" />
+      <span>请输入6-16位的密码</span>
+    </li>
+    <script>
+      var pwd = document.getElementById("pwd");
+      var inform = document.querySelector("span");
+      pwd.onblur = function () {
+        if (this.value.length >= 6 && this.value.length <= 16) {
+          inform.className = "right";
+          inform.innerHTML = "密码输入正确";
+        } else {
+          inform.className = "wrong";
+          inform.innerHTML = "密码格式错误";
+        }
+      };
+    </script>
+  </body>
+</html>

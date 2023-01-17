@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="animate.js"></script>
+  </head>
+  <style>
+    .slider-bar {
+      position: absolute;
+      left: 50%;
+      top: 290px;
+      margin-left: 550px;
+      width: 45px;
+      height: 130px;
+      background-color: pink;
+    }
+    .w {
+      width: 1100px;
+      margin: 10px auto;
+    }
+
+    .header {
+      height: 150px;
+      background-color: purple;
+    }
+
+    .banner {
+      height: 250px;
+      background-color: skyblue;
+    }
+
+    .main {
+      height: 1000px;
+      background-color: yellowgreen;
+    }
+
+    span {
+      display: none;
+      position: absolute;
+      bottom: 0;
+      cursor: pointer;
+    }
+  </style>
+  <body>
+    <div class="slider-bar">
+      <span class="goBack">返回顶部</span>
+    </div>
+    <div class="header w">头部区域</div>
+    <div class="banner w">banner区域</div>
+    <div class="main w">主体部分</div>
+    <script>
+      //绝对定位时相对于父元素的顶部计算，而固定定位时相较于可视化区域
+      var bar = document.querySelector(".slider-bar");
+      var banner = document.querySelector(".banner");
+      var main = document.querySelector(".main");
+      var back = document.querySelector(".goBack");
+      document.addEventListener("scroll", function () {
+        if (window.pageYOffset > banner.offsetTop) {
+          bar.style.position = "fixed";
+          bar.style.top = banner.offsetHeight - bar.offsetHeight + "px";
+          if ((window, pageYOffset > main.offsetTop)) {
+            back.style.display = "block";
+          } else {
+            back.style.display = "none";
+          }
+        } else {
+          bar.style.position = "absolute";
+          bar.style.top = "290px";
+        }
+      });
+      back.addEventListener("click", function () {
+        animate(window, 0);
+      });
+    </script>
+  </body>
+</html>

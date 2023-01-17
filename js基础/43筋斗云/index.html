@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="animate.js"></script>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background-color: black;
+    }
+    .box {
+      position: relative;
+      width: 900px;
+      height: 42px;
+      color: black;
+      margin: 100px auto;
+      background: #fff url(images/rss.png) no-repeat center right;
+    }
+    ul {
+      position: absolute;
+    }
+    .box li {
+      list-style: none;
+      float: left;
+      width: 90px;
+      line-height: 42px;
+      text-align: center;
+    }
+    a {
+      display: inline-block;
+      width: 90px;
+      height: 42px;
+      text-decoration: none;
+      color: black;
+    }
+    a:hover {
+      color: white;
+    }
+    .bg {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 90px;
+      height: 42px;
+      background: url(images/cloud.gif) no-repeat;
+    }
+  </style>
+  <body>
+    <div class="box">
+      <span class="bg"></span>
+      <ul>
+        <li><a href="javascript:;">首页新闻</a></li>
+        <li><a href="javascript:;">师资力量</a></li>
+        <li><a href="javascript:;">活动策划</a></li>
+        <li><a href="javascript:;">企业文化</a></li>
+        <li><a href="javascript:;">招聘信息</a></li>
+        <li><a href="javascript:;">公司简介</a></li>
+        <li><a href="javascript:;">我是佩奇</a></li>
+        <li><a href="javascript:;">啥是佩奇</a></li>
+      </ul>
+    </div>
+    <script>
+      var box = document.querySelector(".box");
+      var lis = document.querySelectorAll("li");
+      var bg = document.querySelector(".bg");
+      //若点击，则bg的初始位置变为diatance
+      var distance = 0;
+      for (var i = 0; i < lis.length; i++) {
+        lis[i].addEventListener("mouseenter", function () {
+          animate(bg, this.offsetLeft);
+        });
+        lis[i].addEventListener("mouseleave", function () {
+          animate(bg, distance);
+        });
+        lis[i].addEventListener("click", function () {
+          distance = this.offsetLeft;
+        });
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+    @font-face {
+      font-family: "icomoon";
+      src: url("fonts/icomoon.eot?a1usvu");
+      src: url("fonts/icomoon.eot?a1usvu#iefix") format("embedded-opentype"),
+        url("fonts/icomoon.ttf?a1usvu") format("truetype"),
+        url("fonts/icomoon.woff?a1usvu") format("woff"),
+        url("fonts/icomoon.svg?a1usvu#icomoon") format("svg");
+      font-weight: normal;
+      font-style: normal;
+      font-display: block;
+    }
+    .box {
+      width: 100px;
+      margin: 100px auto;
+    }
+    .title {
+      width: 100px;
+      height: 50px;
+      line-height: 50px;
+      text-align: center;
+      cursor: pointer;
+    }
+    .title::after {
+      font-family: "icomoon";
+      content: "\e900";
+    }
+    .content {
+      display: none;
+    }
+    .content li {
+      list-style: none;
+      height: 50px;
+      line-height: 48px;
+      border: 1px solid orange;
+      border-top: 0;
+      text-align: center;
+      cursor: pointer;
+    }
+    .title:hover {
+      color: orange;
+      background-color: rgb(216, 212, 212);
+    }
+    .content li:hover {
+      color: orange;
+      background-color: rgb(239, 197, 120);
+    }
+  </style>
+  <body>
+    <div class="box">
+      <div class="title">微博</div>
+      <div class="content">
+        <ul>
+          <li>私信</li>
+          <li>评论</li>
+          <li>@我</li>
+        </ul>
+      </div>
+    </div>
+    <script>
+      var box = document.querySelector(".box");
+      box.onmouseover = function () {
+        box.children[1].style.display = "block";
+      };
+      box.onmouseout = function () {
+        box.children[1].style.display = "none";
+      };
+    </script>
+  </body>
+</html>

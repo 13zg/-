@@ -1,0 +1,86 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .box {
+        width: 1200px;
+        margin: 100px auto;
+      }
+      .box .title {
+        width: 1200px;
+        height: 45px;
+        border: 1px solid #aeadad;
+        background-color: #eef1ee;
+      }
+      .title li {
+        list-style: none;
+        float: left;
+        height: 45px;
+        padding: 0 20px;
+        line-height: 45px;
+        cursor: pointer;
+      }
+      .box .title .current {
+        color: #fff;
+        background-color: #d6271f;
+      }
+      .title li:hover {
+        color: red;
+      }
+      .box .content {
+        width: 1200px;
+      }
+      .content .item {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <div class="title">
+        <ul>
+          <li class="current">商品介绍</li>
+          <li>规格与包装</li>
+          <li>售后保障</li>
+          <li>商品评价（300+）</li>
+          <li>手机社区</li>
+        </ul>
+      </div>
+      <div class="content">
+        <div class="item" style="display: block">商品介绍模块</div>
+        <div class="item">规格包装模块</div>
+        <div class="item">售后保障模块</div>
+        <div class="item">商品评价模块</div>
+        <div class="item">手机社区模块</div>
+      </div>
+    </div>
+    <script>
+      //核心：设置自定义属性，获取自定义属性与内容相对应
+      var list = document.getElementsByClassName("item");
+      var title = document.querySelectorAll("li");
+      for (var i = 0; i < title.length; i++) {
+        title[i].setAttribute("index", i);
+
+        title[i].onclick = function () {
+          var num = this.getAttribute("index");
+
+          for (i = 0; i < title.length; i++) {
+            title[i].className = "";
+          }
+          this.className = "current";
+          for (i = 0; i < list.length; i++) {
+            list[i].style.display = "none";
+          }
+          list[num].style.display = "block";
+        };
+      }
+    </script>
+  </body>
+</html>

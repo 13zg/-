@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    img {
+      display: block;
+      width: 500px;
+    }
+  </style>
+  <body>
+    <button id="yee">易烊千玺</button>
+    <button id="feng">张子枫</button>
+    <img src="" alt="" />
+    <script>
+      var yee = document.getElementById("yee");
+      var feng = document.getElementById("feng");
+      var img = document.querySelector("img");
+      yee.onclick = function () {
+        img.src = "images/yee.jpg";
+        img.title = "易烊千玺";
+      };
+      feng.onclick = function () {
+        img.src = "images/feng.jpg";
+        img.title = "张子枫";
+      };
+    </script>
+  </body>
+</html>
