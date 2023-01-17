@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //父类构造函数
+      /*  function SuperType(name) {
+        this.name = name;
+        this.color = ["red", "black", "pink"];
+      }
+      //父类原型对象
+      SuperType.prototype.sayName = function () {
+        alert(this.name);
+      };
+      //子类构造函数
+      function SubType(name, age) {
+        //利用call继承父类构造函数属性和方法
+        SuperType.call(this, name);
+        this.age = age;
+      }
+      //利用原型继承父类原型中的方法和属性
+      SubType.prototype = new SuperType();
+      //重写实例constructor属性，将其指向子类构造函数
+      SubType.prototype.constructor = SubType;
+      SubType.prototype.sayAge = function () {
+        alert(this.age);
+      };
+      var a1 = new SubType("zt", 20);
+      a1.color.push("Green");
+      console.log(a1.color);
+      a1.sayName();
+      a1.sayAge();
+      var a2 = new SubType("Yee", 18);
+      console.log(a2.color);
+
+      a2.sayName();
+      a2.sayAge(); */
+      function SuperType() {
+        this.colors = ["red", "blue", "green"];
+      }
+      function SubType() {}
+
+      SubType.prototype = new SuperType();
+      SubType.prototype.constructor = new SubType();
+
+      var instance1 = new SubType();
+      instance1.colors.push("black");
+      alert(instance1.colors); //"red,blue,green,black"
+
+      var instance2 = new SubType();
+      alert(instance2.colors); //"red,blue,green,black"
+    </script>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="jquery.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="post">123</button>
+    <script>
+      var btn = document.querySelector("#post");
+      btn.onclick = function () {
+        $.post(
+          "http://www.liulongbin.top:3006/api/addbook",
+          {
+            bookname: "倾之恋",
+            author: "张玲",
+            publisher: "图书出版社",
+          },
+          function (res) {
+            console.log(res);
+          }
+        );
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script src="jquery.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="file" name="bg" id="bg" />
+    <button id="upload">上传文件</button>
+    <img src="" alt="" id="back" />
+    <img src="loading.gif" alt="" id="loading" style="display: none" />
+    <script>
+      //上传文件操作
+      var btn = document.querySelector("#upload");
+      btn.addEventListener("click", function () {
+        var ipt = document.querySelector("#bg").files;
+        if (ipt.length <= 0) {
+          alert("请选择上传的文件");
+        } else {
+          var fd = new FormData();
+          fd.append("bgimg", ipt[0]);
+          $.ajax({
+            method: "post",
+            url: "http://www.liulongbin.top:3006/api/upload/avatar",
+            data: fd,
+            contentType: false,
+            processData: false,
+            success: function (res) {
+              document.querySelector("#back").src =
+                "http://www.liulongbin.top:3006" + res.url;
+            },
+          });
+        }
+      });
+      //监听请求
+      document.ajaxStart = function () {
+        var load = document.querySelector("#loading");
+        load.style.display = "block";
+      };
+      //监听请求完成
+      document.ajaxStop = function () {
+        var load = document.querySelector("#loading");
+        load.style.display = "none";
+      };
+    </script>
+  </body>
+</html>

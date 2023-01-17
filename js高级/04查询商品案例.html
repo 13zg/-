@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .search {
+      width: 600px;
+      font-size: 16px;
+      margin: 30px auto;
+      margin-bottom: 20px;
+    }
+    input {
+      width: 50px;
+    }
+    table {
+      width: 400px;
+      margin: auto;
+      text-align: center;
+    }
+    table,
+    tr,
+    th,
+    td {
+      border-collapse: collapse;
+      border: 1px solid black;
+    }
+  </style>
+  <body>
+    <div class="search">
+      按照价格查询: <input type="text" class="start" /> -
+      <input type="text" class="end" />
+      <button class="search-price">搜索</button>
+      按照商品名称查询:<input type="text" class="product" />
+      <button class="search-pro">查询</button>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>id</th>
+          <th>产品名称</th>
+          <th>价格</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <script>
+      var data = [
+        {
+          id: 1,
+          pname: "小米",
+          price: 3999,
+        },
+        {
+          id: 2,
+          pname: "oppo",
+          price: 999,
+        },
+        {
+          id: 3,
+          pname: "荣耀",
+          price: 1299,
+        },
+        {
+          id: 4,
+          pname: "华为",
+          price: 1999,
+        },
+      ];
+
+      // <!--todo动态创建单元格内容 封装为函数，后面方便调用>
+      var bd = document.querySelector("tbody");
+      function createTab(obj) {
+        //先清空表格
+        bd.innerHTML = "";
+        obj.forEach(function (value) {
+          var tr = document.createElement("tr");
+          bd.appendChild(tr);
+          for (var k in value) {
+            var td = document.createElement("td");
+            tr.appendChild(td);
+            td.innerHTML = value[k];
+          }
+        });
+      }
+      createTab(data);
+      // <!--todo根据价格筛选内容>
+      var price_s = document.querySelector(".start");
+      var price_e = document.querySelector(".end");
+      var btn_price = document.querySelector(".search-price");
+      btn_price.onclick = function () {
+        var data1 = data.filter(function (value) {
+          return value.price >= price_s.value && value.price <= price_e.value;
+        });
+        createTab(data1);
+      };
+      //<!--todo按照商品名称筛选>
+      var name_pro = document.querySelector(".product");
+      var btn_pro = document.querySelector(".search-pro");
+      btn_pro.onclick = function () {
+        //<!--*第一种>
+        /*  var data2 = data.filter(function (value) {
+          return value.pname === name_pro.value;
+        });
+        createTab(data2); */
+        //<!--*第二种>
+        //<!--?对于查询唯一元素，用some方法比较好，找到则停止循环，效率更高>
+        var arr = [];
+        data.some(function (value) {
+          if (value.pname === name_pro.value) {
+            arr.push(value);
+            return true; //<!--?返回true之后便不再执行>
+          }
+        });
+        createTab(arr);
+      };
+    </script>
+  </body>
+</html>

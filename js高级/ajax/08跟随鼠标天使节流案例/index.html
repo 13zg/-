@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    img {
+      position: absolute;
+      width: 50px;
+    }
+  </style>
+  <body>
+    <img src="images/angel.gif" alt="" />
+    <script>
+      var img = document.querySelector("img");
+      //定义一个节流阀，初始化为空
+      var timer = null;
+      document.addEventListener("mousemove", function (e) {
+        //如果不为空，则直接返回，不执行事件处理程序
+        if (timer) {
+          return;
+        } else {
+          timer = setTimeout(function () {
+            var x = e.pageX - 20;
+            var y = e.pageY - 20;
+            img.style.top = y + "px";
+            img.style.left = x + "px";
+            //执行之后把节流阀置为空
+            timer = null;
+          }, 1600);
+        }
+      });
+    </script>
+  </body>
+</html>

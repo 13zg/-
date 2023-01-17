@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="jquery.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <button>123</button>
+    <div></div>
+    <script>
+      var btn = document.querySelector("button");
+      btn.onclick = function () {
+        //get方法
+        /* $.ajax({
+          type: "GET",
+          url: "http://www.liulongbin.top:3006/api/getbooks",
+          data: { id: 1 },
+          success: function (res) {
+            console.log(res);
+          },
+        }); */
+        //post方法
+        $.ajax({
+          type: "POST",
+          url: "http://www.liulongbin.top:3006/api/addbook",
+          data: {
+            bookname: "倾城之恋",
+            author: "张爱玲",
+            publisher: "天津图书出版社",
+          },
+          success: function (res) {
+            console.log(res);
+          },
+        });
+      };
+    </script>
+  </body>
+</html>

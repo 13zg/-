@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <ul class="nav">
+      <li>Apple</li>
+      <li>Orange</li>
+      <li>Watermelon</li>
+      <li>Peach</li>
+    </ul>
+    <script>
+      //<!--todo点击li显示相应的索引号-->
+      //<!--*第一种利用动态添加属性的方式-->
+      var lis = document.querySelectorAll("li");
+      for (var i = 0; i < lis.length; i++) {
+        lis[i].index = i;
+        lis[i].onclick = function () {
+          console.log(this.index);
+        };
+      }
+      //<!--*第二种利用闭包-->
+      for (var i = 0; i < lis.length; i++) {
+        (function (i) {
+          lis[i].onclick = function () {
+            console.log(i);
+          };
+        })(i);
+      }
+    </script>
+  </body>
+</html>

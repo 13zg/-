@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //异步获取用户数据 订单数据 商品数据
+      function getUser() {
+        setTimeout(() => {
+          let data = "用户数据";
+          iterator.next(data); //将数据传入，方便对数据进行操作，这是第二次调用next,作为第一个yield的返回值
+        }, 1000);
+      }
+      function getOrder() {
+        setTimeout(() => {
+          let data = "订单数据";
+          iterator.next(data); //这是第三次调用next,作为第二个yield的返回值
+        }, 1000);
+      }
+      function getGoods() {
+        setTimeout(() => {
+          let data = "商品数据";
+          iterator.next(data); //这是第四次调用next,作为第三个yield的返回值
+        }, 1000);
+      }
+      function* gen() {
+        let user = yield getUser();
+        console.log(user);
+        let order = yield getOrder();
+        console.log(order);
+        let goods = yield getGoods();
+        console.log(goods);
+      }
+      let iterator = gen();
+      iterator.next();
+    </script>
+  </body>
+</html>

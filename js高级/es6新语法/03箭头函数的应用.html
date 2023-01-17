@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    div {
+      width: 200px;
+      height: 200px;
+      margin: auto;
+      background-color: skyblue;
+    }
+  </style>
+  <body>
+    <div class="box"></div>
+    <script>
+      let box = document.querySelector(".box");
+      box.onclick = function () {
+        //使用箭头函数，所以this指向函数声明时的作用域，即点击事件。
+        setTimeout(() => {
+          this.style.background = "pink";
+        }, 2000);
+      };
+      //2、筛选出数组中所有的偶数值
+      const arr = [1, 2, 3, 8, 10, 7, 6];
+      const a = arr.filter((item) => item % 2 === 0);
+      console.log(a);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //<!--todo利用递归求斐波那契数列-->
+      //<!--?前两项数相加等于后一项：1，1，2，3，5，8，13.....-->
+      function fn(n) {
+        if (n == 1 || n == 2) {
+          return 1;
+        }
+        return fn(n - 1) + fn(n - 2);
+      }
+      console.log(fn(7));
+    </script>
+  </body>
+</html>

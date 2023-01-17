@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //<!--todo 计算打车价格-->
+      //起步价13（3公里内），超过一公里增加5块钱，用户输入公里数计算价格
+      //如果有拥堵情况，多收取10块
+      //<!--*第一种正常函数写法-->
+      /* function car(km, flag) {
+        var start = 13;
+        var total = 0;
+        if (km <= 3) {
+          total = start;
+        } else {
+          total = start + (km - 3) * 5;
+        }
+        return flag ? total + 10 : total;
+      }
+      var a = car(4, true);
+      console.log(a); */
+      //<!--*第二种利用闭包-->
+      var car = (function () {
+        var start = 13;
+        var total = 0;
+        return function (km, flag) {
+          if (km <= 3) {
+            total = start;
+          } else {
+            total = start + (km - 3) * 5;
+          }
+          return flag ? total + 10 : total;
+        };
+      })();
+      car(5, true);
+      console.log(car(4, true));
+    </script>
+  </body>
+</html>

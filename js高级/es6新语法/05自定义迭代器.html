@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const obj = {
+        name: "zt",
+        hobby: ["play", "read", "sing"],
+        age: 20,
+      };
+      //自定义对象的迭代器
+      obj[Symbol.iterator] = function () {
+        let index = 0;
+        let that = this;
+        return {
+          next: function () {
+            if (index < that.hobby.length) {
+              const result = { value: that.hobby[index], done: false };
+              index++;
+              return result;
+            } else {
+              return { value: undefined, done: true };
+            }
+          },
+        };
+      };
+      //封装了iterator接口之后，就可以直接使用for of,当done为false时，会自动停止遍历
+      for (let v of obj) {
+        console.log(v);
+      }
+      //验证
+      let iterator = obj[Symbol.iterator]();
+      console.log(iterator.next());
+      console.log(iterator.next());
+      console.log(iterator.next());
+      console.log(iterator.next());
+      console.log(iterator.next());
+    </script>
+  </body>
+</html>

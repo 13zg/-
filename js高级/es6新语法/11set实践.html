@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let arr = [1, 2, 3, 3, 5, 4, 4, 8];
+      //数组去重
+      let s = [...new Set(arr)];
+      console.log(s);
+      //求交集
+      let arr2 = [2, 4, 9, 0];
+      /*  let both = s.filter((item) => {
+        let s2 = new Set(arr2);
+        if (s2.has(item)) {
+          return true;
+        } else {
+          return false;
+        }
+      }); */
+      //简化写法
+      let both = s.filter((item) => new Set(arr2).has(item));
+      console.log(both);
+      //求并集
+      /*  let s3 = new Set(arr2);
+      s.forEach((item) => {
+        if (!s3.has(item)) {
+          s3.add(item);
+        }
+      });
+      console.log([...s3]); */
+      //老师代码
+      let arr3 = [...new Set([...arr, ...arr2])];
+      console.log(arr3);
+      //求差集
+      let diff = s.filter((item) => !new Set(arr2).has(item));
+      console.log(diff);
+      //
+    </script>
+  </body>
+</html>

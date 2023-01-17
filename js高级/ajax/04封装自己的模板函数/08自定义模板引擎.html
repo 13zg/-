@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="template-web.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="inform"></div>
+    <script type="text/html" id="zt">
+      <div>姓名：{{name}}</div>
+      <div>年龄：{{ age }}</div>
+      <div>性别：{{ sex }}</div>
+      <div>地址：{{adress}}</div>
+    </script>
+    <script>
+      var data = {
+        name: "zt",
+        age: 18,
+        sex: "女",
+        adress: "四川",
+      };
+      var tpl = template("zt", data);
+      var div = document.querySelector("#inform");
+      div.innerHTML = tpl;
+    </script>
+  </body>
+</html>

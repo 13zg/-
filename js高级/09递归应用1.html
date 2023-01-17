@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //<!--todo利用递归求1~n的阶乘-->
+      //<!--*我想到的方法-->
+      var sum = 1;
+      var num = 2;
+      function multi(n) {
+        sum = sum * num;
+        num++;
+        if (n < num) {
+          return;
+        }
+        multi(n);
+      }
+      multi(6);
+      console.log(sum);
+      //<!--*老师想到的-->
+      function fn(n) {
+        if (n == 1) {
+          return 1;
+        }
+        return n * fn(n - 1);
+      }
+      console.log(fn(6));
+    </script>
+  </body>
+</html>

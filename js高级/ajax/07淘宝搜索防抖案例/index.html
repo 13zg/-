@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <!-- 导入页面的基本样式 -->
+    <link rel="stylesheet" href="./css/search.css" />
+    <!-- 导入 jQuery -->
+    <script src="./lib/jquery.js"></script>
+    <script src="./lib/template-web.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Logo -->
+      <img src="./images/taobao_logo.png" alt="" class="logo" />
+
+      <div class="box">
+        <!-- tab 栏 -->
+        <div class="tabs">
+          <div class="tab-active">宝贝</div>
+          <div>店铺</div>
+        </div>
+        <!-- 搜索区域（搜索框和搜索按钮） -->
+        <div class="search-box">
+          <input
+            type="text"
+            class="ipt"
+            placeholder="请输入要搜索的内容"
+          /><button class="btnSearch">搜索</button>
+        </div>
+        <div class="search-list"></div>
+      </div>
+    </div>
+    <!-- 定义模板引擎模板 -->
+    <script type="html/text" id="tpl-list">
+      <ul class="list">
+        {{each result}}
+        <li>{{$value[0]}}</li>
+        {{/each}}
+      </ul>
+    </script>
+    <script>
+      //主体功能1：监听键盘升起事件
+      var search = document.querySelector(".ipt");
+      var list = document.querySelector(".search-list");
+      //功能3：定义缓存对象
+      var cacheobj = {};
+      //防抖设置的定时器
+      var timer = null;
+      //功能2：实现防抖
+      function debounceSearch(kw) {
+        timer = setTimeout(function () {
+          getkeyList(kw);
+        }, 500);
+      }
+      search.addEventListener("keyup", function () {
+        //触发keyup时立即清空timer
+        clearTimeout(timer);
+        var keyword = this.value.trim();
+        if (keyword.length <= 0) {
+          //当搜索框没有输入时，隐藏列表
+          list.innerHTML = "";
+          list.style.display = "none";
+          return;
+        } else {
+          //如果有缓存，则直接缓存页面
+          if (cacheobj[keyword]) {
+            getHtmlList(cacheobj[keyword]);
+          }
+          //每次输入文字，则调用函数获取数据
+          else {
+            debounceSearch(keyword);
+          }
+        }
+      });
+      //获取关键字函数
+      function getkeyList(ky) {
+        $.ajax({
+          url: "https://suggest.taobao.com/sug?q=" + ky,
+          dataType: "jsonp",
+          success: function (res) {
+            //将搜索结果保存到缓存对象中
+            cacheobj[ky] = res;
+            //使用模板引擎渲染到页面上
+            getHtmlList(res);
+          },
+        });
+      }
+      //渲染页面函数
+      function getHtmlList(res) {
+        if (res.result.length <= 0) {
+          //当搜索关键字没有相关结果则隐藏列表
+          list.innerHTML = "";
+          list.style.display = "none";
+          return;
+        } else {
+          //有结果则显示
+          var htmlStr = template("tpl-list", res);
+          list.innerHTML = htmlStr;
+          list.style.display = "block";
+        }
+      }
+    </script>
+  </body>
+</html>

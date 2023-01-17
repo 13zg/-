@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var data = [
+        {
+          id: 1,
+          name: "家电",
+          goods: [
+            {
+              id: 11,
+              gname: "冰箱",
+              goods: [
+                {
+                  id: 111,
+                  gname: "海尔",
+                },
+                {
+                  id: 112,
+                  gname: "美的",
+                },
+              ],
+            },
+            {
+              id: 12,
+              gname: "洗衣机",
+            },
+          ],
+        },
+        {
+          id: 2,
+          name: "服饰",
+        },
+      ];
+
+      function fn(json, id) {
+        //<!--?这里的obj是局部变量，所以每次递归调用的是新开辟的fn中的新的obj，不会影响最外层的obj，所以要赋值才行>
+        var obj = {};
+        json.forEach(function (item) {
+          //<!--?这里forEach直接就形成了递归的退出条件，当数组遍历完，退出forEach>
+          if (item.id == id) {
+            obj = item;
+          } else if (item.goods && item.goods.length > 0) {
+            //<!--?必须将里层的fn中的obj赋值给最外层的，才能返回得到的对象>
+            obj = fn(item.goods, id);
+          }
+        });
+        return obj;
+      }
+      console.log(fn(data, 11));
+    </script>
+  </body>
+</html>

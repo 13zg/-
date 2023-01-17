@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let a = {
+        name: "zt",
+        age: 18,
+        hobby: ["book", "eat", "sleep"],
+        job: {
+          type: "UI",
+          salary: 1800,
+        },
+        f1: function () {},
+      };
+      function checkType(obj) {
+        return Object.prototype.toString.call(obj).slice(8, -1);
+      }
+      function clone(obj) {
+        if (
+          checkType(obj) === "String" ||
+          checkType(obj) === "Number" ||
+          checkType(obj) === "Boolean"
+        )
+          return obj.valueOf();
+        if (checkType(obj) === "Date") {
+          return new Date(obj.valueOf());
+        }
+        if (checkType(obj) === "RegExp") {
+          return new RegExp(obj);
+        }
+        // const newobj = Array.isArray(obj) ? [] : {}; //每次递归判断是否属性为数组
+        /*  for (const k in obj) {
+          if (typeof obj[k] === "object") {
+            //是对象（包括数组）
+            newobj[k] = clone(obj[k]);
+          } else if (typeof obj[k] === "function") {
+            //是函数
+            newobj[k] = obj[k].bind(newobj);
+          } else {
+            newobj[k] = obj[k];
+          }
+        } */
+        const newobj = checkType(obj) === "Array" ? [] : {};
+        for (const k in obj) {
+          if (checkType(obj[k]) === "Object") {
+            //是对象（包括数组）
+            newobj[k] = clone(obj[k]);
+          } else if (checkType(obj[k]) === "Function") {
+            //是函数
+            newobj[k] = obj[k].bind(newobj);
+          } else {
+            newobj[k] = obj[k];
+          }
+        }
+        return newobj;
+      }
+      let b = clone(a);
+      console.log(a, b);
+      let a1 = new String("13");
+      console.log(typeof a1);
+      let b1 = {};
+      console.log(b1 instanceof Function);
+    </script>
+  </body>
+</html>

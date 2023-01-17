@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- 1、导入模板引擎 -->
+    <script src="template-web.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="a1"></div>
+    <!-- 定义模板 -->
+    <script type="html" id="user">
+      <h3>{{name}}</h3>
+    </script>
+    <script>
+      //2、定义数据
+      data = {
+        name: "zt",
+      };
+      //4、调用template函数
+      var username = template("user", data);
+      //5、渲染到html页面
+      var div = document.querySelector("#a1");
+      a1.innerHTML = username;
+    </script>
+  </body>
+</html>

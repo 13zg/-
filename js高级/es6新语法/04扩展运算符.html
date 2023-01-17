@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <script>
+      //1合并数组
+      const a = [1, 2, 3];
+      const b = ["a", "b", "c"];
+      const c = [...a, ...b];
+      console.log(c);
+      //2克隆数组 若元素有引用型，依旧是浅拷贝
+      const clone = [...c];
+      console.log(clone);
+      //3转换伪数组 转换为真正的数组，可以使用内置方法
+      let divs = document.querySelectorAll("div");
+      console.log(divs);
+      const divsArr = [...divs];
+      console.log(divsArr);
+    </script>
+  </body>
+</html>
