@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+    .search {
+      width: 538px;
+      height: 34px;
+      border: 2px solid rgb(100, 100, 253);
+      margin: 50px auto;
+    }
+    .search input {
+      float: left;
+      width: 456px;
+      height: 30px;
+      padding-left: 15px;
+      outline: none;
+      border: 0;
+      color: #999;
+    }
+    .search button {
+      float: left;
+      width: 78px;
+      height: 30px;
+      line-height: 30px;
+      text-align: center;
+      color: #fff;
+      background-color: rgb(100, 100, 253);
+      font-size: 16px;
+      border: 0;
+      cursor: pointer;
+    }
+  </style>
+  <body>
+    <div class="search">
+      <input type="search" name="" id="" value="易烊千玺" />
+      <button>搜索</button>
+    </div>
+    <script>
+      var sear = document.querySelector("input");
+      sear.onfocus = function () {
+        if (sear.value === "易烊千玺") this.value = "";
+        this.style.color = "black";
+      };
+      sear.onblur = function () {
+        if (sear.value === "") this.value = "易烊千玺";
+        this.style.color = "#999";
+      };
+    </script>
+  </body>
+</html>

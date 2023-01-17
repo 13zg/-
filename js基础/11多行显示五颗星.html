@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <script>
+    //打印一行
+    var str = "";
+    for (var i = 1; i <= 5; i++) {
+      str += "💜";
+    }
+    console.log(str);
+    //打印多行
+    var str1 = "";
+    for (var i = 1; i <= 5; i++) {
+      for (var j = 1; j <= 5; j++) {
+        str1 += "💗";
+      }
+      str1 = str1 + "\n";
+    }
+    console.log(str1);
+    // 打印n行n列的星星
+    var row = 0,
+      col = 0,
+      str2 = "";
+    row = prompt("打印星星的行数：");
+    col = prompt("打印星星的列数：");
+    for (var i = 1; i <= row; i++) {
+      for (var j = 1; j <= col; j++) {
+        str2 += "💚";
+      }
+      str2 += "\n";
+    }
+    console.log(str2);
+    //打印倒三角星星的案例
+    var str3 = "";
+    for (var i = 1; i <= 4; i++) {
+      for (var j = i; j <= 4; j++) {
+        str3 += "💙";
+      }
+      str3 += "\n";
+    }
+    console.log(str3);
+    //打印正三角星星
+    var str4 = "";
+    for (var i = 1; i <= 4; i++) {
+      for (var j = 1; j <= i; j++) {
+        str4 += "🤍";
+      }
+      str4 += "\n";
+    }
+    console.log(str4);
+  </script>
+  <body></body>
+</html>

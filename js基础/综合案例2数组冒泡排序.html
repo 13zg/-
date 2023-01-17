@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <script>
+    var a = [8, 0, 9, 6, 7, 4, 2];
+    var t = 0;
+    for (var i = 0; i < a.length - 1; i++) {
+      for (var j = 0; j < a.length - 1 - i; j++) {
+        if (a[j] <= a[j + 1]) {
+          t = a[j];
+          a[j] = a[j + 1];
+          a[j + 1] = t;
+        }
+      }
+    }
+    console.log(a);
+  </script>
+  <body></body>
+</html>

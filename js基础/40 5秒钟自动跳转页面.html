@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>页面将在5秒钟之后自动跳转...</p>
+    <script>
+      var text = document.querySelector("p");
+      var i = 5;
+      setInterval(function () {
+        text.innerHTML = "页面将在" + i + "秒钟之后自动跳转...";
+        i--;
+      }, 1000);
+      setTimeout(function () {
+        location.href = "http://www.Baidu.com";
+      }, 5000);
+    </script>
+  </body>
+</html>

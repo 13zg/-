@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <script>
+    //求数组的和以及平均值
+    var arr = [2, 6, 1, 7, 4];
+    var sum = 0;
+    var arg = 0;
+    for (var i = 0; i < arr.length; i++) {
+      sum += arr[i];
+    }
+    arg = sum / arr.length;
+    console.log(sum, arg);
+    //求数组的最大值
+    var max = 0;
+    for (var i = 0; i < arr.length; i++) {
+      if (arr[i] >= max) {
+        max = arr[i];
+      }
+    }
+    console.log(max);
+    //数组转化为分割字符串
+    var arr = ["red", "green", "blue", "pink"];
+    var str = "";
+    for (var i = 0; i < arr.length; i++) {
+      str += arr[i] + "|";
+    }
+    console.log(str);
+    //在数组里面存放10个整数
+    var arr = [];
+    var num = 0;
+    for (var i = 0; i < 10; i++) {
+      num = i + 1;
+      // arr[i] = prompt("请输入第" + num + "个数：");
+    }
+    console.log(arr);
+    //筛选数组
+    var arr = [2, 0, 6, 1, 77, 0, 52, 0, 25, 7];
+    var arr1 = [];
+    var j = 0;
+    for (var i = 0; i < arr.length; i++) {
+      if (arr[i] >= 10) {
+        arr1[j] = arr[i];
+        j++;
+      }
+    }
+    console.log(arr1);
+    //方法2
+    var arr = [2, 0, 6, 1, 77, 0, 52, 0, 25, 7];
+    var arr1 = [];
+    for (var i = 0; i < arr.length; i++) {
+      if (arr[i] >= 10) {
+        arr1.push(arr[i]);
+      }
+    }
+    console.log(arr1);
+    //删除数组指定元素
+    var arr = [2, 0, 6, 1, 77, 0, 52, 0, 25, 7];
+    var arr1 = [];
+    for (var i = 0; i < arr.length; i++) {
+      if (arr[i] == 0) {
+        continue;
+      }
+      arr1[arr1.length] = arr[i];
+    }
+    console.log(arr1);
+    //翻转数组
+    var color = ["red", "green", "blue", "purple", "pink"];
+    var color1 = [];
+    for (var i = color.length - 1; i >= 0; i--) {
+      color1[color1.length] = color[i];
+    }
+    console.log(color1);
+    //直接使用方法
+    var color = ["red", "green", "blue", "purple", "pink"];
+    color.reverse();
+    console.log(color);
+  </script>
+  <body></body>
+</html>

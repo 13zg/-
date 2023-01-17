@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .login {
+      display: none;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 350px;
+      height: 200px;
+
+      padding-top: 10px;
+      background-color: #fff;
+    }
+    .login h3 {
+      font-size: 18px;
+      font-weight: normal;
+      text-align: center;
+      margin-bottom: 20px;
+      cursor: move;
+    }
+    ul {
+      list-style: none;
+    }
+    ul li {
+      margin-bottom: 20px;
+    }
+    .login ul li label {
+      display: inline-block;
+      width: 60px;
+      font-size: 13px;
+      text-align: right;
+    }
+    .login ul li input {
+      width: 260px;
+      height: 30px;
+      outline: none;
+      border: 1px solid #999999;
+      padding-left: 5px;
+    }
+    .login .log {
+      width: 200px;
+      height: 30px;
+      margin-left: 85px;
+      text-align: center;
+      line-height: 30px;
+      font-size: 13px;
+      border: 1px solid #999999;
+    }
+    a {
+      color: black;
+      text-align: center;
+      text-decoration: none;
+    }
+    button {
+      position: absolute;
+      top: -20px;
+      right: -20px;
+      width: 40px;
+      height: 40px;
+      border-radius: 20px;
+      background-color: #fff;
+      border-style: none;
+    }
+    .btn {
+      display: block;
+      margin: auto;
+      font-size: 18px;
+    }
+    button {
+      cursor: pointer;
+    }
+  </style>
+  <body>
+    <a href="javascript:;" class="btn">点击，弹出登录框</a>
+    <div class="login">
+      <h3>会员登录</h3>
+      <ul>
+        <li>
+          <label for="user">用户名：</label
+          ><input type="text" id="user" placeholder="请输入用户名" />
+        </li>
+        <li>
+          <label for="pwd">密码：</label
+          ><input
+            type="password"
+            name=""
+            id="pwd"
+            placeholder="请输入登录密码"
+          />
+        </li>
+        <li class="log"><a href="#">登录</a></li>
+      </ul>
+      <button>关闭</button>
+    </div>
+    <script>
+      var btn = document.querySelector(".btn");
+      var box = document.querySelector(".login");
+      var bd = document.body;
+      var close = document.querySelector("button");
+      var title = document.querySelector("h3");
+      btn.addEventListener("click", function () {
+        box.style.display = "block";
+        bd.style.backgroundColor = "#afb2af";
+      });
+      close.addEventListener("click", function () {
+        box.style.display = "none";
+        bd.style.backgroundColor = "";
+      });
+      title.addEventListener("mousedown", function (e) {
+        var x = e.pageX - box.offsetLeft;
+        var y = e.pageY - box.offsetTop;
+        document.addEventListener("mousemove", move);
+        function move(e) {
+          //这里css中设置了margin值，所以要在这里加上margin值
+          box.style.left = e.pageX - x + "px";
+          box.style.top = e.pageY - y + "px";
+        }
+        document.addEventListener("mouseup", function () {
+          document.removeEventListener("mousemove", move);
+        });
+      });
+    </script>
+  </body>
+</html>

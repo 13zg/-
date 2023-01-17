@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <script>
+    //利用indexOf方法来统计字符次数
+    var str = "abcoefoxyozzopp";
+    function total(str) {
+      var j = 0;
+      var t = str.indexOf("o");
+      while (t != -1) {
+        j++;
+        t = str.indexOf("o", t + 1);
+      }
+      return j;
+    }
+    console.log(total(str));
+  </script>
+  <body></body>
+</html>

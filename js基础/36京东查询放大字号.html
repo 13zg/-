@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .box1 {
+      position: relative;
+      width: 400px;
+      margin: 100px auto;
+    }
+    .con {
+      display: none;
+      position: absolute;
+      top: -40px;
+      left: 80px;
+      width: 200px;
+      height: 30px;
+      margin: 0 auto;
+      background-color: #fff;
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+    .con::before {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 0;
+      top: 30px;
+      left: 30px;
+      border: 10px solid transparent;
+      border-top-color: #fff;
+    }
+  </style>
+  <body>
+    <div class="box1">
+      <div class="con"></div>
+      <div class="box2">
+        <label for="num">快递单号：</label>
+        <input type="text" id="num" placeholder="请输入快递单号" />
+      </div>
+    </div>
+    <script>
+      var con = document.querySelector(".con");
+      var ipt = document.querySelector("input");
+      ipt.addEventListener("keyup", function () {
+        if (this.value != "") {
+          con.style.display = "block";
+          con.innerHTML = this.value;
+        } else {
+          con.style.display = "none";
+        }
+      });
+      ipt.addEventListener("blur", function () {
+        con.style.display = "none";
+      });
+      ipt.addEventListener("focus", function () {
+        if (this.value != "") {
+          con.style.display = "block";
+        } else {
+          con.style.display = "none";
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <script>
+    //使用函数求任意数的累加和
+    var all;
+    function getSum(start, end) {
+      var sum = 0;
+      for (var i = start; i <= end; i++) {
+        sum += i;
+      }
+      return sum;
+    }
+    all = getSum(50, 100);
+    console.log(all);
+    //求两个数的最大值
+    var num = 0;
+    function getMax(num1, num2) {
+      /* var max = num1;
+      if (num1 < num2) {
+        max = num2;
+      }
+      return max; */
+      return num1 > num2 ? num1 : num2;
+    }
+    num = getMax(90, 91);
+    console.log(num);
+    //求数组当中的最大值
+    var max1 = 0;
+    var arr1 = [52, 99, 101, 92, 77];
+    function getArrmax(arr) {
+      var max = 0;
+      for (var i = 0; i < arr.length; i++) {
+        if (max < arr[i]) {
+          max = arr[i];
+        }
+      }
+      return max;
+    }
+    max1 = getArrmax(arr1);
+    console.log(max1);
+    //测试
+    function getA(num1, num2) {
+      console.log(num1 + num2);
+    }
+    console.log(getA(1, 2));
+    //arguments的运用
+    function getMaxnum() {
+      var max = arguments[0];
+      for (var i = 1; i < arguments.length; i++) {
+        if (max < arguments[i]) {
+          max = arguments[i];
+        }
+      }
+      return max;
+    }
+    console.log(getMaxnum(1, 4, 6, 3, 8, 90, 130));
+    //利用函数翻转数组
+    var color = ["red", "blue", "green", "purple"];
+    var color1 = [];
+    function getNewarr(arr) {
+      if (arr instanceof Array) {
+        var newarr = [];
+        for (var i = arr.length - 1; i >= 0; i--) {
+          newarr[newarr.length] = arr[i];
+        }
+        return newarr;
+      } else {
+        return "error,请输入正确的数组格式";
+      }
+    }
+    color1 = getNewarr(color);
+    console.log(color1);
+    //封装冒泡排序
+    function getSort(arr) {
+      var t = 0;
+      for (var i = 0; i < arr.length - 1; i++) {
+        for (var j = 0; j < arr.length - i - 1; j++) {
+          if (arr[j] < arr[j + 1]) {
+            t = arr[j];
+            arr[j] = arr[j + 1];
+            arr[j + 1] = t;
+          }
+        }
+      }
+      return arr;
+    }
+    var arr3 = getSort([1, 4, 5, 3, 8, 10]);
+    console.log(arr3);
+  </script>
+  <body></body>
+</html>

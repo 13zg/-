@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件冒泡</title>
+  <style>
+        #boxOne{
+            width: 300px;
+            height: 300px;
+            border:1px solid red;
+        }
+        #boxTwo{
+            width: 200px;
+            height: 200px;
+            border: 1px solid green;
+        }
+        #boxthree{ 
+            width: 100px;
+            height: 100px;
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+<body>
+    <div id="boxOne" onclick="alert('我是最外层')"> 
+    <div id="boxTwo" onclick="alert('我是中间层！')"> 
+    <a id="boxthree" 
+ href="http://www.baidu.com"mce_href="http://www.baidu.com">点击我</a> 
+    
+</body>
+</html>

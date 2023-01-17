@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <script>
+    var str = "afgftraboodoppbkp";
+    var obj = {};
+    for (var i = 0; i < str.length; i++) {
+      var char = str.charAt(i);
+      if (obj[char]) {
+        obj[char]++;
+      } else {
+        obj[char] = 1;
+      }
+    }
+    var max = 0;
+    var t = "";
+    for (var k in obj) {
+      if (obj[k] > max) {
+        max = obj[k];
+        t = k;
+      }
+    }
+    console.log("出现次数最多的是：" + t + ",次数为：" + max);
+  </script>
+  <body></body>
+</html>

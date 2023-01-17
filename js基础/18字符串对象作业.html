@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <script>
+    var str = "abaasdffggghhjjkkgfddsssss3444343";
+    //字符串长度
+    console.log(str.length);
+    //取出指定位置字符
+    console.log(str.charAt(2));
+    //查找指定字符在字符串中是否存在
+    console.log(str.indexOf("i"));
+    //替换指定字符
+    console.log(str.replace("a", "b"));
+    //截取一串指定字符
+    console.log(str.substr(2, 4));
+    //找出出现次数最多的字符，并显示
+    var obj = {};
+    for (var i = 0; i < str.length; i++) {
+      var t = str.charAt(i);
+      if (obj[t]) {
+        obj[t]++;
+      } else {
+        obj[t] = 1;
+      }
+    }
+    var max = 0;
+    var j = 0;
+    for (var k in obj) {
+      if (max < obj[k]) {
+        max = obj[k];
+        j = k;
+      }
+    }
+    console.log("出现次数最多的是：" + j + "次数为：" + max);
+  </script>
+  <body></body>
+</html>

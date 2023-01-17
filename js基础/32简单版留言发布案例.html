@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .box {
+      width: 300px;
+      margin: 100px auto;
+    }
+    textarea {
+      border: 1px solid skyblue;
+      resize: none;
+      outline: none;
+    }
+    ul {
+      margin-top: 50px;
+    }
+    ul li {
+      background-color: skyblue;
+      color: rgb(109, 101, 101);
+      margin-top: 20px;
+      font-size: 14px;
+    }
+    a {
+      float: right;
+      margin-right: 10px;
+      font-size: 14px;
+      text-decoration: none;
+      color: white;
+    }
+    a:hover {
+      color: red;
+    }
+  </style>
+  <body>
+    <div class="box">
+      <textarea
+        name=""
+        id=""
+        cols="20"
+        rows="5"
+        placeholder="请输入留言"
+      ></textarea>
+      <button>发布</button>
+      <ul></ul>
+    </div>
+    <script>
+      var box = document.querySelector(".box");
+      var text = box.children[0];
+      var btn = box.children[1];
+      var list = box.children[2];
+      btn.onclick = function () {
+        if (text.value == "") {
+          alert("请输入留言");
+        } else {
+          var ll = document.createElement("li");
+          list.insertBefore(ll, list.children[0]);
+          ll.innerHTML = text.value + '<a href="javascript:;">删除</a>';
+          text.value = "";
+          var del = document.querySelectorAll("a");
+          for (var i = 0; i < del.length; i++) {
+            del[i].onclick = function () {
+              list.removeChild(this.parentNode);
+            };
+          }
+        }
+      };
+    </script>
+  </body>
+</html>

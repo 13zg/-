@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    table {
+      width: 300px;
+      text-align: center;
+      border-collapse: collapse;
+      margin: 100px auto;
+    }
+    th {
+      height: 30px;
+      background-color: #008dd0;
+      color: #fff;
+    }
+    th,
+    td {
+      border: 1px solid #d7d7d7;
+    }
+    tr {
+      font-size: 12px;
+      background-color: #eef1ee;
+    }
+  </style>
+  <body>
+    <table>
+      <thead>
+        <tr>
+          <th><input type="checkbox" id="good_all" /></th>
+          <th>商品</th>
+          <th>价钱</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><input type="checkbox" /></td>
+          <td>ipone8</td>
+          <td>8000</td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" /></td>
+          <td>ipad</td>
+          <td>7000</td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" /></td>
+          <td>Apple Watch</td>
+          <td>1000</td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" /></td>
+          <td>ipad Pro</td>
+          <td>13000</td>
+        </tr>
+      </tbody>
+    </table>
+    <script>
+      var goodall = document.getElementById("good_all");
+      var ipt = document.querySelector("tbody").querySelectorAll("input");
+      var row = document.querySelector("tbody").querySelectorAll("tr");
+      for (var i = 0; i < row.length; i++) {
+        row[i].onmouseover = function () {
+          this.style.backgroundColor = "#f5f5f5";
+        };
+        row[i].onmouseout = function () {
+          this.style.backgroundColor = "";
+        };
+      }
+      //   实现点击全选和取消全选
+      goodall.onclick = function () {
+        for (var i = 0; i < ipt.length; i++) {
+          ipt[i].checked = this.checked;
+        }
+      };
+      //实现勾选全部则自动全选
+      /* for (i = 0; i < ipt.length; i++) {
+        ipt[i].onclick = function () {
+          var t = 0;
+          for (var j = 0; j < ipt.length; j++) {
+            if (ipt[j].checked) {
+              t++;
+            }
+          }
+          if (t == ipt.length) {
+            goodall.checked = true;
+          } else {
+            goodall.checked = false;
+          }
+        };
+      } */
+      //简单做法
+      for (i = 0; i < ipt.length; i++) {
+        ipt[i].onclick = function () {
+          var flag = true;
+          for (i = 0; i < ipt.length; i++) {
+            if (!ipt[i].checked) {
+              flag = false;
+              break;
+            }
+          }
+          goodall.checked = flag;
+        };
+      }
+    </script>
+  </body>
+</html>
