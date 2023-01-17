@@ -1,0 +1,38 @@
+body {
+    font: 16px/28px 'Microsoft YaHei';
+}
+h1{
+    /* 标题不加粗居中显示 */
+    font-weight: 400;
+    text-align: center;
+}
+div{
+    /* 设置颜色并居中显示 */
+    color: darkgray;
+    font-size: 12px;
+    text-align: center;
+}
+.pic{
+    /* 图片居中显示要放在父标签p中 */
+    text-align: center;
+}
+a{
+    /* 取消下划线 */
+    text-decoration: none;
+}
+p{
+    line-height: 25px;
+    text-indent: 2em;
+}
+.end{
+    color: darkgray;
+    font-size: 12px;
+}
+/* 设置value的样式要单独设置 */
+.search{
+    font-weight: 700;
+}
+.box{
+    color: darkgray;
+    width: 170px;
+}

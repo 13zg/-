@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    body {
+      perspective: 500px;
+    }
+    .box {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      margin: 100px auto;
+      transform-style: preserve-3d;
+      transition: all 1s;
+    }
+    .box div {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      line-height: 200px;
+      text-align: center;
+      font-size: 30px;
+      color: aliceblue;
+    }
+    .up {
+      background-color: purple;
+      z-index: 1;
+      backface-visibility: hidden;
+    }
+    .down {
+      background-color: pink;
+      /* 使两张图片背靠背 */
+      transform: rotateY(180deg);
+    }
+    .box:hover {
+      transform: rotateY(180deg);
+    }
+  </style>
+  <body>
+    <div class="box">
+      <div class="up">正面</div>
+      <div class="down">反面</div>
+    </div>
+  </body>
+</html>

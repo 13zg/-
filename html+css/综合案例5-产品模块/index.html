@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: #f5f5f5;
+        }
+        .box{
+            width: 298px;
+            height: 415px;
+            margin: 20px auto;
+            background-color:#ffff;
+        }
+        /* img是行内块元素，默认宽度由内容决定，所以要设置宽度。 */
+        .box .bg1{
+            width: 100%;
+        }
+        /* p、div都是块元素，默认继承父元素的宽，所以不用再设置宽。 */
+        .box .review{
+            font-size:14px;
+            height: 70px;
+            padding:  0 15px;
+            margin-top: 20px;
+        }
+        .box .appraise{
+            font-size: 10px;
+            color: #8d8c8c;
+            padding: 0 15px;
+            margin-top: 20px;
+        }
+        .box .info{
+            padding: 0 15px;
+            margin-top: 10px;
+        }
+        .box .info p{
+            display: inline-block;
+            font-size: 14px;
+            margin-right: 20px;
+            
+        }
+        .box .info span{
+            color: coral;
+            margin-left: 10px;
+        }
+        .box .info em{
+            font-style: normal;
+            color: #ebe4e0;
+        }
+        a{
+            text-decoration: none;
+            color: black;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box">
+        <img  class="bg1" src="images/img.jpg" />
+        <p class="review"><a href="#">快递牛，整体牛，蓝牙可以说秒连，红米给力</a></p>
+        <div class="appraise">来自于123453的评价</div>
+        <div class="info">
+            <p><a href="#">Redmi AirDots真无线蓝...</a></p>
+            <em>|</em>
+            <span>99.9元</span>
+        </div>
+    </div>
+    
+</body>
+</html>

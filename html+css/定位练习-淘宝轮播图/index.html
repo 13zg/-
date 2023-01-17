@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        padding: 0;
+        margin: 0;
+    }
+    .tb-promo{
+        position: relative;
+        width: 520px;
+        height: 280px;
+        margin: 100px auto;
+    }
+    a{
+        position: absolute;
+        text-decoration: none;
+        width: 20px;
+        height: 30px;
+        line-height: 30px;
+        background: rgba(0, 0,0, 0.3);
+        color: #fff;
+    }
+    .prev{
+        top: 50%;
+        left: 0px;
+        margin-top: -15px;
+        border-radius: 0 15px 15px 0;
+    }
+    .next{
+        width: 20px;
+        height: 30px;
+        top:50%;
+        right: 0px;
+        margin-top: -15px;
+        border-radius:15px 0 0 15px;
+    }
+    .promo-nav{
+        list-style: none;
+        position: absolute;
+        left: 50%;
+        bottom: 10px;
+        margin-left: -40px;
+        width: 80px;
+        height: 10px;
+        border-radius: 5px;
+        background: rgba(255, 255, 255,0.5);
+    }
+    .promo-nav li{
+        float: left;
+        width: 8px;
+        height: 8px;
+        margin-right: 10px;
+        border-radius: 4px;
+        background-color: #fff;
+    }
+     .promo-nav .li1{
+        margin-right: 0px;
+    }
+
+</style>
+<body>
+    <div class="tb-promo">
+        <em>
+            <img src="images/tb.jpg">
+        </em>
+        <a class="prev" href="#">&lt;</a>
+        <a class="next" href="#">&gt;</a>
+        <ul class="promo-nav">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li class="li1"></li>
+        </ul>
+    </div>
+</body>
+</html>

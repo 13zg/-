@@ -1,0 +1,134 @@
+
+.w{
+    width: 1200px;
+    margin: 0 auto;
+}
+/* 头部样式 */
+.header{
+    width: 1200px;
+    height: 84px;
+    line-height: 84px;
+    border-bottom: 2px solid #c81623;
+}
+/* 内容样式 */
+.registerarea{
+    height: 521px;
+    margin-top: 16px;
+    border: 1px solid #ececec;
+}
+.registerarea h3{
+    height: 42px;
+    line-height: 42px;
+    padding: 0 10px;
+    font-size: 18px;
+    font-weight: 400;
+    background-color: #ececec;
+}
+h3 .login{
+    float: right;
+    font-size: 14px;
+}
+.login a{
+    color: #c81623;
+}
+.reg_form .box{
+    width: 577px;
+    margin: 25px auto;
+}
+.box ul li{
+    margin-bottom: 20px;
+}
+.box ul li label{
+    display: inline-block;
+    width: 80px;
+    text-align: right;
+}
+.box ul li .inp{
+    width: 240px;
+    height: 36px;
+    border: 1px solid #999999;
+    margin-right: 5px;
+}
+.box .error{
+    color: #c81623;
+}
+.box .success{
+    color: green;
+}
+.error .error_icon{
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    vertical-align: middle;
+    margin-top: -2px;
+    background: url(../images/error.png) no-repeat;
+}
+.success .success_icon{
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    vertical-align: middle;
+    margin-top: -2px;
+    background: url(../images/success.png) no-repeat;
+}
+.box .safe{
+   
+    margin-left: 160px;
+}
+.box .safe em{
+    color: #fff;
+    padding: 0 12px;
+}
+.safe .ruo{
+    margin-left: 5px;
+    background-color: #de1111;
+}
+.safe .zhong{
+    background-color: #40b83f;
+}
+.safe .qiang{
+    background-color: #f79100;
+}
+.box .agree{
+    margin-left: 95px;
+}
+.box .agree input{
+    vertical-align: middle;
+}
+.box .agree a{
+    color: #1ba1e6;
+}
+.box .register{
+    width: 200px;
+    height: 34px;
+    margin-left: 97px;
+    margin-top: 50px;
+    line-height: 34px;
+    text-align: center;
+    font-size: 14px;
+    background-color: #c81623;
+}
+.box .register a{
+    color: #fff;
+}
+/* 尾部样式 */
+.footer{
+    width: 1200px;
+    height: 82px;
+}
+.mod_copyright{
+    padding-top: 18px;
+    padding-left: 100px;
+}
+.mod_copyright a{
+    float: left;
+    padding: 0 15px;
+    border-right: 1px solid #999999;
+}
+.mod_copyright a:last-child{
+    border: 0;
+}
+.mod_copyright .right{
+    margin-top: 16px;
+    text-align: center;
+}
